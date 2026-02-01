@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-} from "recharts";
+} from "recharts";   //library Recharts
 
 export const CoinDetail = () => {
   const { id } = useParams();

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router-dom";
 import { fetchCoinData, fetchChartData } from "../Api/coinGecko";
 import { formatMarketCapINR, formatPrice } from "../utils/formatter";
 import {
@@ -44,7 +44,7 @@ export const CoinDetail = () => {
           month: "short",
           day: "numeric",
         }),
-        price: price[1].toFixed(2),
+        price: Number(price[1].toFixed(2)),
       }));
       setChartData(formattedData);
     } catch (err) {

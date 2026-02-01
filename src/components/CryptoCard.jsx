@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { formatPrice, formatMarketCapINR } from "../utils/formatter";
 
 export const CryptoCard = ({ crypto }) => {
@@ -11,7 +11,7 @@ export const CryptoCard = ({ crypto }) => {
             <img src={crypto.image} alt={crypto.name} />
             <div>
               <h3>{crypto.name}</h3>
-              <p className="symbol">{crypto.symbol.toUpperCase()}</p>
+              <p className="symbol">{crypto.symbol?.toUpperCase()}</p>
               <span className="rank">#{crypto.market_cap_rank}</span>
             </div>
           </div>
@@ -24,8 +24,8 @@ export const CryptoCard = ({ crypto }) => {
               crypto.price_change_percentage_24h >= 0 ? "positive" : "negative"
             }`}
           >
-            {crypto.price_change_percentage_24h >= 0 ? " ↑" : "↓"}{" "}
-            {Math.abs(crypto.price_change_percentage_24h).toFixed(2)}%
+            {crypto.price_change_percentage_24h >= 0 ? "↑" : "↓"}{" "}
+            {Math.abs(crypto.price_change_percentage_24h || 0).toFixed(2)}%
           </p>
         </div>
 
